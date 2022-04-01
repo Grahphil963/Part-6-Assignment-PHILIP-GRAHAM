@@ -10,6 +10,8 @@ namespace Part_6_Assignment_PHILIP_GRAHAM
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Whats up dude");
+
         }
     }
 }
