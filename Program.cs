@@ -13,66 +13,41 @@ namespace Part_6_Assignment_PHILIP_GRAHAM
             //Prompter();
 
 
-            //Percent Passsing 
+            //PercentPassing(); 
 
-            Double testScoreAbovePassing=0;
-            Double testScoreNumber=0;
-            Double testScores=0;
-
-
+            //OddSum
+            int numberInput;
+            int sum = 0;
+            int DifferentNum = 1;
+            Console.WriteLine("Please enter a number");
             
-            
-                do
-                {
-                    Console.WriteLine("Please enter a test score or a negative value when done:");
-                    while (!Double.TryParse(Console.ReadLine(), out testScoreNumber))
-                        Console.WriteLine("Please enter a number");
-                    if (testScoreNumber >= 70)
-                    testScoreAbovePassing = testScoreAbovePassing + 1;
+             while (!int.TryParse(Console.ReadLine(), out numberInput))
+                    Console.WriteLine("Enter a whole number");
 
-                    
-                    testScores = testScores + 1;
-                } while (testScoreNumber >= 0);
-            Console.WriteLine($"You entered {testScores} and you had {testScoreAbovePassing} above passing so {(testScoreAbovePassing)*100}% of your tests were passing grades");
+            do
+            {
+                sum = sum + DifferentNum;
+                DifferentNum = DifferentNum + 2;
+
+            } while (DifferentNum <= numberInput);
+            Console.WriteLine($"The sum of all the odd numbers is {sum}");
             Console.ReadLine();
 
 
+            //Random Numbers
+            Random generator = new Random();
+            int minimum;
+            int maximum;
+
 
 
 
             
-            
-            
-            
-            
-            
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+         
         }
         public static void Prompter()
         {
@@ -105,5 +80,26 @@ namespace Part_6_Assignment_PHILIP_GRAHAM
             Console.WriteLine("Well done sir");
             Console.ReadLine();
         }
+        public static void PercentPassing()
+        {
+            Double testScoreAbovePassing = 0;
+            Double testScoreNumber = 0;
+            Double testScores = 0;
+
+            do
+            {
+                Console.WriteLine("Please enter a test score or a negative value when done:");
+                while (!Double.TryParse(Console.ReadLine(), out testScoreNumber))
+                    Console.WriteLine("Please enter a number");
+                if (testScoreNumber >= 70)
+                    testScoreAbovePassing = testScoreAbovePassing + 1;
+                testScores++;
+            } while (testScoreNumber >= 0);
+
+            testScores--;
+            Console.WriteLine($"You entered {testScores} Scores and you had {testScoreAbovePassing} scores above passing so {(testScoreAbovePassing / testScores) * 100}% of your tests were passing grades");
+            Console.ReadLine();
+        }
+
     }
 }
