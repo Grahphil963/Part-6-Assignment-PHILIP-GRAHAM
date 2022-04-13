@@ -10,38 +10,39 @@ namespace Part_6_Assignment_PHILIP_GRAHAM
     {
         static void Main(string[] args)
         {
-            //Prompter();
+            Prompter();
 
 
-            //PercentPassing(); 
+            PercentPassing(); 
 
-            //OddSum
-            int numberInput;
-            int sum = 0;
-            int DifferentNum = 1;
-            Console.WriteLine("Please enter a number");
+            OddSum();
             
-             while (!int.TryParse(Console.ReadLine(), out numberInput))
-                    Console.WriteLine("Enter a whole number");
-
-            do
-            {
-                sum = sum + DifferentNum;
-                DifferentNum = DifferentNum + 2;
-
-            } while (DifferentNum <= numberInput);
-            Console.WriteLine($"The sum of all the odd numbers is {sum}");
-            Console.ReadLine();
-
 
             //Random Numbers
             Random generator = new Random();
-            int minimum;
-            int maximum;
+            int numberMin;
+            int  numberMax;
+            Double randomNumber;
+            Console.WriteLine("Please enter a Minimum number");
+            while (!Int32.TryParse(Console.ReadLine(), out numberMin))
+                Console.WriteLine("Enter a number");
+            Console.WriteLine("Please enter a maximum number");
+            while (!Int32.TryParse(Console.ReadLine(), out numberMax))
+                Console.WriteLine("Enter a number");
+            for (double i =1; i<= 25; i ++) 
+            {
+                Console.WriteLine($"{generator.Next(numberMin, numberMax+1)}");
+            }
+
+            Console.ReadLine();
 
 
 
 
+
+
+
+            
             
 
 
@@ -98,6 +99,25 @@ namespace Part_6_Assignment_PHILIP_GRAHAM
 
             testScores--;
             Console.WriteLine($"You entered {testScores} Scores and you had {testScoreAbovePassing} scores above passing so {(testScoreAbovePassing / testScores) * 100}% of your tests were passing grades");
+            Console.ReadLine();
+        }
+        public static void OddSum()
+        {
+            int numberInput;
+            int sum = 0;
+            int DifferentNum = 1;
+            Console.WriteLine("Please enter a number");
+
+            while (!int.TryParse(Console.ReadLine(), out numberInput))
+                Console.WriteLine("Enter a whole number");
+
+            do
+            {
+                sum = sum + DifferentNum;
+                DifferentNum = DifferentNum + 2;
+
+            } while (DifferentNum <= numberInput);
+            Console.WriteLine($"The sum of all the odd numbers is {sum}");
             Console.ReadLine();
         }
 
